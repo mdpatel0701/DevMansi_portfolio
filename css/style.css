@@ -13,10 +13,16 @@
     --fw-reg: 300;
     --fw-bold: 900;
     
-    --clr-light: #f0f5f1;
+    /* --clr-light: #f0f5f1;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
-    
+    --clr-accent: #16e0bd; */
+
+     
+    --clr-light: #ffffff;
+    --clr-lesslight: #e0e2d2;
+    --clr-dark:#002C3e;
+    --clr-accent: #ffcb59;
+    --clr-footer: #002C3e;
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
@@ -127,7 +133,7 @@ h3 { font-size: var(--fs-h3) }
 }
 
 .section__subtitle--work {
-    color: var(--clr-accent);
+    color: var(--clr-dark);
     font-weight: var(--fw-bold);
     margin-bottom: 2em;
 }
@@ -240,6 +246,17 @@ header {
 
 .hamburger::before { top: 6px; }
 .hamburger::after { bottom: 6px; } */
+/******************************************/
+
+/** navigation bar **/
+.menu{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
 
 .menu .main-navigation {
     white-space: nowrap;
@@ -255,14 +272,26 @@ header {
     justify-content: flex-end;
     -ms-flex-align: center;
     align-items: center;
+    box-shadow: var(--bs);
 }
 [data-whatinput="mouse"] .menu .main-navigation li {
     outline: 0;
 }
 
+.menu .main-navigation li {
+    padding: 0 0.3125rem;
+    position: relative;
+}
+.menu .main-navigation{
+    background-color:var(--clr-light);
+    /* opacity: 1; */
+}
 .menu .main-navigation li a {
-    font-size: 1rem;
-    color: #000;
+    float:right;
+    font-size: 1.05rem;
+    font-family: var(--ff-secondary);
+    /* font-weight: 502; */
+    color:var(--clr-dark);
     text-decoration: none;
     position: relative;
     padding: 0.9375rem 1.25rem;
@@ -278,7 +307,9 @@ header {
 .menu .main-navigation li a.m-anim:hover {
     padding: 0.625rem 1.25rem;
     border-color: #000;
+    background-color: var(--clr-accent);
     outline: none;
+    cursor: pointer;
 }
 .menu .main-navigation li a.m-anim::before {
     position: absolute;
@@ -294,6 +325,7 @@ header {
 }
 .menu .main-navigation li a.m-anim::after {
     position: absolute;
+    top:0;
     left: 0;
     bottom: 0;
     right: 0;
@@ -304,12 +336,20 @@ header {
     content: attr(data-text);
     transition: max-height 0.2s, border-color 0s;
 }
-.menu .main-navigation li a.m-anim:hover::before,
+    .menu .main-navigation li a.m-anim:hover::before,
 .menu .main-navigation li a.m-anim:hover::after {
     max-height: 100%;
     transition-delay: 0.1s;
     border-color: #000;
 }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+/***************************************************************/
 
 /*  Intro section  */
 
@@ -450,8 +490,8 @@ header {
 /* My Work */
 
 .my-work {
-    background-color: var(--clr-dark);
-    color: var(--clr-light);
+    background-color: var(--clr-lesslight);
+    color: var(--clr-dark);
     text-align: center;    
 }
 
@@ -486,7 +526,7 @@ header {
 /* footer */
 
 .footer {
-    background: #111;
+    background:var(--clr-footer);
     color: var(--clr-accent);
     text-align: center;
     padding: 2.5em 0;
